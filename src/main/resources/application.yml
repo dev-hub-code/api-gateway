@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 8080
+  servlet:
+    context-path: /api-gateway
+
+gateway:
+  routes:
+#    user-service:
+#      uri: lb://user-service
+#      predicates:
+#        - Path=/users/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8079/eureka
