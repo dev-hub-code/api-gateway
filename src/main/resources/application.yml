@@ -1,17 +1,18 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: api-gateway
-server:
-  port: 8080
-  servlet:
-    context-path: /api-gateway
-
-gateway:
-  routes:
-#    user-service:
-#      uri: lb://user-service
-#      predicates:
-#        - Path=/users/**
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: user-service
+              uri: lb://USER-SERVICE
+              predicates:
+                - Path=/user/**
 
 eureka:
   instance:
